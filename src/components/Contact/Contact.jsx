@@ -1,4 +1,6 @@
 import css from "./Contact.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = ({ contact, handleDelete }) => {
   const name = contact.name;
@@ -7,8 +9,14 @@ const Contact = ({ contact, handleDelete }) => {
   return (
     <div className={css.contactList}>
       <div className={css.contact}>
-        <p>{name}</p>
-        <p>{number}</p>
+        <p>
+          <FontAwesomeIcon icon={faUser} className={css.icon} />
+          {name}
+        </p>
+        <p>
+          <FontAwesomeIcon icon={faPhone} className={css.icon} />
+          {number}
+        </p>
       </div>
       <button type="button" className="button" onClick={() => handleDelete(id)}>
         Delete
